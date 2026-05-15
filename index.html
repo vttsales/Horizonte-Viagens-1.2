@@ -1,0 +1,741 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Horizonte - Viagens</title>
+
+    <!-- bootstrap 5 — framework css que usei pra nao ter que fazer tudo do zero -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- bootstrap icons — biblioteca de icones -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <!-- google fonts — inter -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- meus css — separados por componente -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="css/combos.css" />
+    <link rel="stylesheet" href="css/secoes.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/modais.css" />
+    <link rel="stylesheet" href="css/widgets.css" />
+  </head>
+
+  <body>
+    <!-- barra de navegacao do topo -->
+    <nav class="navbar navbar-horizonte">
+      <div class="container">
+        <!-- logo -->
+        <a class="navbar-brand" href="#">
+          <span
+            ><i class="bi bi-airplane-fill text-warning me-1"></i
+            ><span class="destaque">Horizonte</span> Viagens</span
+          >
+        </a>
+
+        <!-- links normais no desktop — some no mobile -->
+        <ul class="navbar-nav d-none d-lg-flex flex-row gap-2 me-auto ms-4">
+          <li class="nav-item">
+            <a class="nav-link" href="#combos"
+              ><i class="bi bi-gift me-1"></i>Combos</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#hoteis"
+              ><i class="bi bi-building me-1"></i>Hotéis</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#diferenciais"
+              ><i class="bi bi-star me-1"></i>Por que nós?</a
+            >
+          </li>
+        </ul>
+
+        <!-- area de login no desktop — some no mobile -->
+        <div id="area-login" class="d-none d-lg-flex"></div>
+
+        <!-- botao hamburguer — so aparece no mobile -->
+        <button
+          class="btn-hamburguer d-lg-none"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#menuMobile"
+        >
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- menu lateral que abre no mobile (offcanvas) -->
+    <div
+      class="offcanvas offcanvas-end offcanvas-menu"
+      tabindex="-1"
+      id="menuMobile"
+    >
+      <div class="offcanvas-header">
+        <span class="offcanvas-title">
+          <i class="bi bi-airplane-fill text-warning me-1"></i>
+          <span class="destaque">Horizonte</span> Viagens
+        </span>
+        <button
+          type="button"
+          class="btn-fechar-menu"
+          data-bs-dismiss="offcanvas"
+        >
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+
+      <div class="offcanvas-body">
+        <ul class="nav flex-column menu-links">
+          <li class="nav-item">
+            <a class="nav-link" href="#combos"
+              ><i class="bi bi-gift me-2"></i>Combos</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#hoteis"
+              ><i class="bi bi-building me-2"></i>Hotéis</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#diferenciais"
+              ><i class="bi bi-star me-2"></i>Por que nós?</a
+            >
+          </li>
+        </ul>
+
+        <hr class="menu-divisor" />
+
+        <!-- area de login no mobile — atualizada pelo auth.js -->
+        <div id="area-login-mobile"></div>
+      </div>
+    </div>
+
+    <!-- secao principal com o formulario de busca -->
+    <section class="hero" id="inicio">
+      <div class="container position-relative">
+        <div class="row align-items-center">
+          <!-- texto da esquerda — quando o usuario loga o titulo muda -->
+          <div class="col-lg-5 mb-4 mb-lg-0">
+            <h1 id="saudacao-hero">
+              Explore o mundo com o <span class="destaque">Horizonte</span>
+            </h1>
+            <p class="subtitulo mt-3">
+              Passagem + hospedagem + ingresso de evento num só combo. Mais
+              barato e sem complicação.
+            </p>
+
+            <!-- numerinhos de estatistica so pra dar credibilidade -->
+            <div class="row g-3 mt-2">
+              <div class="col-4 text-center">
+                <div class="fw-bold text-white fs-5">+500</div>
+                <div class="text-white-50" style="font-size: 0.8rem">
+                  destinos
+                </div>
+              </div>
+              <div class="col-4 text-center">
+                <div class="fw-bold text-white fs-5">+1M</div>
+                <div class="text-white-50" style="font-size: 0.8rem">
+                  viajantes
+                </div>
+              </div>
+              <div class="col-4 text-center">
+                <div class="fw-bold text-white fs-5">24h</div>
+                <div class="text-white-50" style="font-size: 0.8rem">
+                  suporte
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- formulario de busca dos combos -->
+          <div class="col-lg-7">
+            <div class="busca-box">
+              <h5 class="fw-bold mb-3" style="color: var(--azul-escuro)">
+                <i class="bi bi-search text-warning me-2"></i>Buscar Combos
+              </h5>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="label-busca">sua cidade</label>
+                  <input
+                    type="text"
+                    class="input-busca"
+                    placeholder="De onde você sai?"
+                    id="origem"
+                  />
+                </div>
+                <div class="col-md-6">
+                  <label class="label-busca">destino do combo</label>
+                  <input
+                    type="text"
+                    class="input-busca"
+                    placeholder="Ex: Tóquio, Paris, Nova York..."
+                    id="destino"
+                  />
+                </div>
+                <div class="col-md-4">
+                  <label class="label-busca">data de ida</label>
+                  <input type="date" class="input-busca" id="dataIda" />
+                </div>
+                <div class="col-md-4">
+                  <label class="label-busca">data de volta</label>
+                  <input type="date" class="input-busca" id="dataVolta" />
+                </div>
+                <div class="col-md-4">
+                  <label class="label-busca">viajantes</label>
+                  <select class="input-busca" id="viajantes">
+                    <option>1 pessoa</option>
+                    <option>2 pessoas</option>
+                    <option>3 pessoas</option>
+                    <option>Família</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <button class="btn-buscar" onclick="buscarCombos()">
+                    <i class="bi bi-search me-2"></i>Buscar Combos Disponíveis
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- secao dos combos — principal do site, dividida em luxo e economico -->
+    <section class="secao-combos" id="combos">
+      <div class="container">
+        <div class="text-center mb-2"></div>
+        <h2 class="secao-titulo text-center">Combos Exclusivos</h2>
+        <p class="secao-subtitulo text-center">
+          Passagem + hospedagem + ingresso pra eventos. Escolha entre pacotes de
+          luxo ou opções econômicas.
+        </p>
+
+        <!-- combos de luxo -->
+        <div class="categoria-titulo">
+          <h3>Pacotes de Luxo</h3>
+        </div>
+        <!-- cards criados pelo dados.js -->
+        <div class="row g-4" id="lista-combos-luxo"></div>
+
+        <hr class="categoria-separador" />
+
+        <!-- combos economicos -->
+        <div class="categoria-titulo">
+          <h3>Pacotes Econômicos</h3>
+        </div>
+        <!-- cards criados pelo dados.js -->
+        <div class="row g-4" id="lista-combos-economico"></div>
+      </div>
+    </section>
+
+    <!-- secao de hoteis -->
+    <section class="py-secao bg-white" id="hoteis">
+      <div class="container">
+        <h2 class="secao-titulo">Hotéis em Destaque</h2>
+        <p class="secao-subtitulo">
+          Acomodações parceiras com as melhores avaliações
+        </p>
+        <div class="row g-4" id="lista-hoteis"></div>
+      </div>
+    </section>
+
+    <!-- secao de diferenciais da empresa -->
+    <section class="py-secao secao-diferenciais" id="diferenciais">
+      <div class="container">
+        <h2 class="secao-titulo text-center">
+          Por que viajar com a Horizonte?
+        </h2>
+        <p class="secao-subtitulo text-center">
+          A gente cuida de tudo pra você só se preocupar em aproveitar
+        </p>
+        <div class="row g-4 mt-2">
+          <div class="col-md-6 col-lg-3 d-flex">
+            <div class="card-diferencial">
+              <div class="icone"><i class="bi bi-gift"></i></div>
+              <h5>Combo Único</h5>
+              <p>
+                Passagem + hotel + ingresso de evento num só pacote. Economize
+                até 35% comparado a contratar separado.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex">
+            <div class="card-diferencial">
+              <div class="icone"><i class="bi bi-whatsapp"></i></div>
+              <h5>Suporte via WhatsApp</h5>
+              <p>
+                Atendimento humano direto no WhatsApp das 8h às 22h. Sem robô,
+                sem fila de espera longa.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex">
+            <div class="card-diferencial">
+              <div class="icone"><i class="bi bi-credit-card"></i></div>
+              <h5>12x Sem Juros</h5>
+              <p>
+                Parcele seu combo em até 12x no cartão sem juros. Ou pague no
+                PIX e ganhe 5% de desconto extra.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex">
+            <div class="card-diferencial">
+              <div class="icone"><i class="bi bi-shield-check"></i></div>
+              <h5>Compra Garantida</h5>
+              <p>
+                Cancelamento gratuito até 30 dias antes. Sua compra protegida do
+                início ao fim da viagem.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- banner de cadastro de email -->
+    <section class="banner-newsletter">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <h2>Receba combos exclusivos primeiro</h2>
+            <p class="mt-2">
+              Cadastre seu e-mail e seja avisado de novos combos antes de todo
+              mundo
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <div class="d-flex newsletter-form">
+              <input
+                type="email"
+                class="input-newsletter"
+                placeholder="seu@email.com.br"
+                id="emailNewsletter"
+              />
+              <button
+                class="btn btn-newsletter"
+                onclick="cadastrarNewsletter()"
+              >
+                <i class="bi bi-bell me-1"></i>Quero ser avisado!
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- rodape -->
+    <footer>
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <div class="footer-logo">
+              <i class="bi bi-airplane-fill text-warning me-2"></i
+              ><span class="destaque">Horizonte</span> Viagens
+            </div>
+            <p class="footer-desc">
+              Somos especialistas em combos de viagem: passagem + hospedagem +
+              ingresso de eventos. Explore o mundo pagando menos.
+            </p>
+            <div class="footer-redes">
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-twitter-x"></i></a>
+              <a href="#"><i class="bi bi-youtube"></i></a>
+              <a href="#" onclick="abrirWhatsappGeral()"
+                ><i class="bi bi-whatsapp"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-lg-2">
+            <h6>Combos</h6>
+            <ul>
+              <li><a href="#">Combos de Música</a></li>
+              <li><a href="#">Combos de Esportes</a></li>
+              <li><a href="#">Combos de Cultura</a></li>
+              <li><a href="#">Lua de Mel</a></li>
+              <li><a href="#">Família</a></li>
+            </ul>
+          </div>
+
+          <div class="col-sm-6 col-lg-2">
+            <h6>Destinos</h6>
+            <ul>
+              <li><a href="#">Tóquio</a></li>
+              <li><a href="#">Paris</a></li>
+              <li><a href="#">Nova York</a></li>
+              <li><a href="#">Florianópolis</a></li>
+              <li><a href="#">Ubatuba</a></li>
+            </ul>
+          </div>
+
+          <div class="col-sm-6 col-lg-2">
+            <h6>Empresa</h6>
+            <ul>
+              <li><a href="#">Sobre nós</a></li>
+              <li><a href="#">Blog de viagens</a></li>
+              <li><a href="#">Parceiros</a></li>
+              <li><a href="#">Trabalhe conosco</a></li>
+            </ul>
+          </div>
+
+          <div class="col-sm-6 col-lg-2">
+            <h6>Ajuda</h6>
+            <ul>
+              <li><a href="#" onclick="abrirWhatsappGeral()">WhatsApp</a></li>
+              <li><a href="#">Política de privacidade</a></li>
+              <li><a href="#">Termos de uso</a></li>
+              <li><a href="#">Cancelamentos</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom text-center">
+          <p>
+            © 2025 Horizonte Viagens. Todos os direitos reservados. | PIM - 2026
+            ADS
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- janela de login -->
+    <div class="modal fade" id="modalLogin" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div
+            class="modal-header-custom d-flex justify-content-between align-items-start"
+          >
+            <div>
+              <h4>
+                <i class="bi bi-airplane-fill text-warning me-2"></i>Bem-vindo
+                de volta!
+              </h4>
+              <p>Entre na sua conta pra acessar seus combos</p>
+            </div>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">e-mail</label>
+              <input
+                type="email"
+                class="form-control form-control-custom"
+                id="loginEmail"
+                placeholder="seu@email.com.br"
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">senha</label>
+              <div class="position-relative">
+                <input
+                  type="password"
+                  class="form-control form-control-custom"
+                  id="loginSenha"
+                  placeholder="sua senha"
+                />
+                <button
+                  class="btn btn-link position-absolute end-0 top-50 translate-middle-y text-muted pe-3"
+                  onclick="toggleSenha('loginSenha', this)"
+                  style="border: none"
+                >
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="lembrarMe"
+                />
+                <label
+                  class="form-check-label"
+                  style="font-size: 0.9rem"
+                  for="lembrarMe"
+                  >Lembrar de mim</label
+                >
+              </div>
+              <a href="#" class="link-trocar-modal" style="font-size: 0.85rem"
+                >Esqueceu a senha?</a
+              >
+            </div>
+            <button class="btn btn-modal-principal mb-3" onclick="fazerLogin()">
+              <i class="bi bi-box-arrow-in-right me-2"></i>Entrar
+            </button>
+            <div class="text-center text-muted mb-3" style="font-size: 0.85rem">
+              — ou entre com —
+            </div>
+            <div class="d-flex gap-2 mb-4">
+              <button
+                class="btn btn-outline-secondary w-50 py-2"
+                onclick="mostrarToast('Login com Google em breve.')"
+              >
+                <i class="bi bi-google me-2"></i>Google
+              </button>
+              <button
+                class="btn btn-outline-secondary w-50 py-2"
+                onclick="mostrarToast('Login com Facebook em breve.')"
+              >
+                <i class="bi bi-facebook me-2"></i>Facebook
+              </button>
+            </div>
+            <div class="text-center" style="font-size: 0.9rem">
+              Não tem conta?
+              <a
+                class="link-trocar-modal"
+                data-bs-toggle="modal"
+                data-bs-target="#modalCadastro"
+                data-bs-dismiss="modal"
+                >Cadastre-se grátis</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- janela de cadastro -->
+    <div class="modal fade" id="modalCadastro" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div
+            class="modal-header-custom d-flex justify-content-between align-items-start"
+          >
+            <div>
+              <h4>
+                <i class="bi bi-person-plus text-warning me-2"></i>Crie sua
+                conta
+              </h4>
+              <p>Rápido, grátis e você já começa economizando</p>
+            </div>
+            <button class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">nome *</label>
+                <input
+                  type="text"
+                  class="form-control form-control-custom"
+                  id="cadNome"
+                  placeholder="Seu nome"
+                />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">sobrenome</label>
+                <input
+                  type="text"
+                  class="form-control form-control-custom"
+                  placeholder="Seu sobrenome"
+                />
+              </div>
+              <div class="col-12">
+                <label class="form-label">e-mail *</label>
+                <input
+                  type="email"
+                  class="form-control form-control-custom"
+                  id="cadEmail"
+                  placeholder="seu@email.com.br"
+                />
+              </div>
+              <!-- telefone e obrigatorio pra confirmar reservas -->
+              <div class="col-12">
+                <label class="form-label">telefone / whatsapp *</label>
+                <div class="position-relative">
+                  <span
+                    class="position-absolute"
+                    style="
+                      left: 14px;
+                      top: 50%;
+                      transform: translateY(-50%);
+                      color: var(--cinza-texto);
+                      font-size: 0.9rem;
+                    "
+                  >
+                    <i class="bi bi-whatsapp text-success"></i>
+                  </span>
+                  <input
+                    type="tel"
+                    class="form-control form-control-custom"
+                    id="cadTelefone"
+                    placeholder="(11) 99999-9999"
+                    oninput="mascaraTelefone(this)"
+                    style="padding-left: 36px"
+                  />
+                </div>
+                <small class="text-muted" style="font-size: 0.78rem">
+                  <i class="bi bi-info-circle me-1"></i>Usamos pra te avisar de
+                  promoções e confirmar reservas
+                </small>
+              </div>
+              <!-- cpf opcional mas importante pra emissao de nota -->
+              <div class="col-12">
+                <label class="form-label">cpf</label>
+                <input
+                  type="text"
+                  class="form-control form-control-custom"
+                  id="cadCpf"
+                  placeholder="000.000.000-00"
+                  oninput="mascaraCpf(this)"
+                />
+              </div>
+              <!-- campo de senha com botao de mostrar/esconder -->
+              <div class="col-12">
+                <label class="form-label"
+                  >senha *
+                  <small class="text-muted fw-normal"
+                    >(mínimo 8 caracteres)</small
+                  ></label
+                >
+                <div class="position-relative">
+                  <input
+                    type="password"
+                    class="form-control form-control-custom"
+                    id="cadSenha"
+                    placeholder="mínimo 8 caracteres"
+                  />
+                  <button
+                    class="btn btn-link position-absolute end-0 top-50 translate-middle-y text-muted pe-3"
+                    onclick="toggleSenha('cadSenha', this)"
+                    style="border: none"
+                  >
+                    <i class="bi bi-eye"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- barrinha colorida que mostra a forca da senha -->
+              <div class="col-12">
+                <div
+                  class="progress mt-1"
+                  style="height: 5px; border-radius: 4px"
+                >
+                  <div
+                    class="progress-bar"
+                    id="barraSenha"
+                    style="width: 0%; background: #e74c3c; transition: all 0.3s"
+                  ></div>
+                </div>
+                <small id="textoForcaSenha" class="text-muted"
+                  >Digite uma senha</small
+                >
+              </div>
+              <!-- checkbox de aceite dos termos -->
+              <div class="col-12">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="aceitarTermos"
+                  />
+                  <label
+                    class="form-check-label"
+                    style="font-size: 0.88rem"
+                    for="aceitarTermos"
+                  >
+                    Aceito os
+                    <a href="#" class="link-trocar-modal">Termos de Uso</a> e a
+                    <a href="#" class="link-trocar-modal"
+                      >Política de Privacidade</a
+                    >
+                  </label>
+                </div>
+              </div>
+              <div class="col-12">
+                <button
+                  class="btn btn-modal-principal"
+                  onclick="fazerCadastro()"
+                >
+                  <i class="bi bi-person-plus me-2"></i>Criar Conta Grátis
+                </button>
+              </div>
+              <div class="col-12 text-center" style="font-size: 0.9rem">
+                Já tem conta?
+                <a
+                  class="link-trocar-modal"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalLogin"
+                  data-bs-dismiss="modal"
+                  >Fazer login</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- chatbot -->
+    <div class="chatbot-janela" id="chatbot-janela">
+      <div class="chatbot-header">
+        <div class="chatbot-avatar"><i class="bi bi-robot"></i></div>
+        <div class="chatbot-info">
+          <h6>Hor - Assistente Virtual</h6>
+          <small>Online agora</small>
+        </div>
+        <button class="chatbot-fechar" onclick="toggleChatbot()">
+          <i class="bi bi-x-lg"></i>
+        </button>
+      </div>
+      <div class="chatbot-mensagens" id="chatbot-mensagens"></div>
+      <div class="chatbot-input-area">
+        <input
+          type="text"
+          id="chatbot-input"
+          placeholder="Pergunte sobre destinos, preços..."
+        />
+        <button class="btn-enviar-chat" onclick="enviarMensagemChat()">
+          <i class="bi bi-send-fill"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- botao azul no canto da tela que abre o chat -->
+    <button class="btn-chatbot-float" onclick="toggleChatbot()">
+      <i class="bi bi-chat-dots-fill"></i>
+    </button>
+
+    <!-- botao verde do whatsapp -->
+    <button class="btn-whatsapp-float" onclick="abrirWhatsappGeral()">
+      <i class="bi bi-whatsapp"></i>
+    </button>
+
+    <!-- mensagem de feedback que aparece embaixo da tela -->
+    <div class="toast-custom" id="toastGlobal">
+      <i class="bi bi-check-circle-fill"></i>
+      <span id="toastMensagem"></span>
+    </div>
+
+    <!-- bootstrap js — precisa vir antes dos meus scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- meus js — a ordem importa! -->
+    <script src="js/utils.js"></script>
+    <!-- funcoes utilitarias (toast, mascaras...) -->
+    <script src="js/auth.js"></script>
+    <!-- login, cadastro e logout -->
+    <script src="js/dados.js"></script>
+    <!-- dados e renderizacao dos cards -->
+    <script src="js/chatbot.js"></script>
+    <!-- assistente virtual -->
+    <script src="js/main.js"></script>
+    <!-- inicializa tudo — tem que ser o ultimo -->
+  </body>
+</html>
