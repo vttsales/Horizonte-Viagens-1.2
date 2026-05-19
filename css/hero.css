@@ -2,7 +2,12 @@
    estilo da secao principal com o formulario de busca */
 
 .hero {
-  background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-medio) 60%, #1e4080 100%);
+  background: linear-gradient(
+    135deg,
+    var(--azul-escuro) 0%,
+    var(--azul-medio) 60%,
+    #1e4080 100%
+  );
   padding: 80px 0 100px;
   position: relative;
   overflow: hidden;
@@ -16,10 +21,12 @@
   line-height: 1.2;
 }
 
-.hero h1 .destaque { color: var(--laranja); }
+.hero h1 .destaque {
+  color: var(--laranja);
+}
 
 .hero p.subtitulo {
-  color: rgba(255,255,255,0.75);
+  color: rgba(255, 255, 255, 0.75);
   font-size: 1.1rem;
   font-weight: 300;
   margin-bottom: 36px;
@@ -46,7 +53,7 @@
 .input-busca:focus {
   border-color: var(--azul-claro);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .label-busca {
@@ -80,6 +87,10 @@
 
 /* responsividade do hero no celular */
 @media (max-width: 768px) {
-  .hero h1 { font-size: 1.9rem; }
-  .busca-box { padding: 20px 16px; }
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+  .busca-box {
+    padding: 20px 16px;
+  }
 }

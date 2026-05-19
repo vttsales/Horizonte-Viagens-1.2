@@ -5,23 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Horizonte - Viagens</title>
 
-    <!-- bootstrap 5 — framework css que usei pra nao ter que fazer tudo do zero -->
+    <!-- bootstrap 5 -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <!-- bootstrap icons — biblioteca de icones -->
+    <!-- bootstrap icons -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
       rel="stylesheet"
     />
-    <!-- google fonts — inter -->
+    <!-- google fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
 
-    <!-- meus css — separados por componente -->
+    <!-- meus css -->
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/hero.css" />
@@ -33,40 +33,27 @@
   </head>
 
   <body>
-    <!-- barra de navegacao do topo -->
+    <!-- navbar -->
     <nav class="navbar navbar-horizonte">
       <div class="container">
-        <!-- logo -->
         <a class="navbar-brand" href="#">
           <span
             ><i class="bi bi-airplane-fill text-warning me-1"></i
             ><span class="destaque">Horizonte</span> Viagens</span
           >
         </a>
-
-        <!-- links normais no desktop — some no mobile -->
         <ul class="navbar-nav d-none d-lg-flex flex-row gap-2 me-auto ms-4">
           <li class="nav-item">
-            <a class="nav-link" href="#combos"
-              ><i class="bi bi-gift me-1"></i>Combos</a
-            >
+            <a class="nav-link" href="#combos">Combos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#hoteis"
-              ><i class="bi bi-building me-1"></i>Hotéis</a
-            >
+            <a class="nav-link" href="#hoteis">Hotéis</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#diferenciais"
-              ><i class="bi bi-star me-1"></i>Por que nós?</a
-            >
+            <a class="nav-link" href="#diferenciais">Por que nós?</a>
           </li>
         </ul>
-
-        <!-- area de login no desktop — some no mobile -->
         <div id="area-login" class="d-none d-lg-flex"></div>
-
-        <!-- botao hamburguer — so aparece no mobile -->
         <button
           class="btn-hamburguer d-lg-none"
           type="button"
@@ -78,7 +65,7 @@
       </div>
     </nav>
 
-    <!-- menu lateral que abre no mobile (offcanvas) -->
+    <!-- menu mobile -->
     <div
       class="offcanvas offcanvas-end offcanvas-menu"
       tabindex="-1"
@@ -97,7 +84,6 @@
           <i class="bi bi-x-lg"></i>
         </button>
       </div>
-
       <div class="offcanvas-body">
         <ul class="nav flex-column menu-links">
           <li class="nav-item">
@@ -116,19 +102,15 @@
             >
           </li>
         </ul>
-
         <hr class="menu-divisor" />
-
-        <!-- area de login no mobile — atualizada pelo auth.js -->
         <div id="area-login-mobile"></div>
       </div>
     </div>
 
-    <!-- secao principal com o formulario de busca -->
+    <!-- hero -->
     <section class="hero" id="inicio">
-      <div class="container position-relative">
+      <div class="container">
         <div class="row align-items-center">
-          <!-- texto da esquerda — quando o usuario loga o titulo muda -->
           <div class="col-lg-5 mb-4 mb-lg-0">
             <h1 id="saudacao-hero">
               Explore o mundo com o <span class="destaque">Horizonte</span>
@@ -137,8 +119,6 @@
               Passagem + hospedagem + ingresso de evento num só combo. Mais
               barato e sem complicação.
             </p>
-
-            <!-- numerinhos de estatistica so pra dar credibilidade -->
             <div class="row g-3 mt-2">
               <div class="col-4 text-center">
                 <div class="fw-bold text-white fs-5">+500</div>
@@ -160,12 +140,10 @@
               </div>
             </div>
           </div>
-
-          <!-- formulario de busca dos combos -->
           <div class="col-lg-7">
             <div class="busca-box">
               <h5 class="fw-bold mb-3" style="color: var(--azul-escuro)">
-                <i class="bi bi-search text-warning me-2"></i>Buscar Combos
+                Buscar Combos
               </h5>
               <div class="row g-3">
                 <div class="col-md-6">
@@ -178,11 +156,11 @@
                   />
                 </div>
                 <div class="col-md-6">
-                  <label class="label-busca">destino do combo</label>
+                  <label class="label-busca">destino</label>
                   <input
                     type="text"
                     class="input-busca"
-                    placeholder="Ex: Tóquio, Paris, Nova York..."
+                    placeholder="Ex: Paris, Ubatuba, Tóquio..."
                     id="destino"
                   />
                 </div>
@@ -215,46 +193,561 @@
       </div>
     </section>
 
-    <!-- secao dos combos — principal do site, dividida em luxo e economico -->
+    <!-- combos -->
     <section class="secao-combos" id="combos">
       <div class="container">
-        <div class="text-center mb-2"></div>
         <h2 class="secao-titulo text-center">Combos Exclusivos</h2>
         <p class="secao-subtitulo text-center">
           Passagem + hospedagem + ingresso pra eventos. Escolha entre pacotes de
           luxo ou opções econômicas.
         </p>
 
-        <!-- combos de luxo -->
+        <!-- pacotes de luxo -->
         <div class="categoria-titulo">
           <h3>Pacotes de Luxo</h3>
         </div>
-        <!-- cards criados pelo dados.js -->
-        <div class="row g-4" id="lista-combos-luxo"></div>
+        <div class="row g-4">
+          <!-- paris -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card-combo">
+              <div class="combo-header" style="background: #6c5ce7">
+                <div class="combo-emoji">🗼</div>
+                <div class="combo-destino-nome">Paris</div>
+                <div class="combo-pais">França</div>
+                <div class="combo-atracao">Torre Eiffel</div>
+                <div class="combo-desconto-badge">-32% OFF</div>
+              </div>
+              <div class="combo-body">
+                <div class="combo-infos">
+                  <span>15 dias</span>
+                  <span>São Paulo → Paris</span>
+                </div>
+                <div class="combo-evento">
+                  <div>
+                    <div class="evento-nome">Semana de Moda de Paris</div>
+                    <div class="evento-data">02 a 17 Out 2025</div>
+                  </div>
+                </div>
+                <ul class="combo-inclui">
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i
+                    >Passagem aérea ida e volta em classe executiva
+                  </li>
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i>Hotel
+                    5 estrelas no centro de Paris
+                  </li>
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i
+                    >Ingresso Semana de Moda + jantar gastronômico
+                  </li>
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i>City
+                    tour guiado e passeio de barco no Sena
+                  </li>
+                </ul>
+                <div class="combo-preco">
+                  <div class="combo-de">R$ 22.000,00</div>
+                  <div class="combo-por">R$ 15.000,00</div>
+                  <div class="combo-parcelas">
+                    ou 12x de R$ 1.250,00 sem juros
+                  </div>
+                </div>
+                <div class="combo-acoes">
+                  <button class="btn-ver-combo" onclick="verCombo('lux-1')">
+                    Ver detalhes
+                  </button>
+                  <button
+                    class="btn-whatsapp-combo"
+                    onclick="abrirWhatsapp('Paris', 'R$ 15.000,00')"
+                  >
+                    <i class="bi bi-whatsapp"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- toquio -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card-combo">
+              <div class="combo-header" style="background: #d63031">
+                <div class="combo-emoji">⛩️</div>
+                <div class="combo-destino-nome">Tóquio</div>
+                <div class="combo-pais">Japão</div>
+                <div class="combo-atracao">Monte Fuji</div>
+                <div class="combo-desconto-badge">-31% OFF</div>
+              </div>
+              <div class="combo-body">
+                <div class="combo-infos">
+                  <span>20 dias</span>
+                  <span>São Paulo → Tóquio</span>
+                </div>
+                <div class="combo-evento">
+                  <div>
+                    <div class="evento-nome">
+                      Festival Hanami (Cherry Blossom)
+                    </div>
+                    <div class="evento-data">25 Mar a 14 Abr 2026</div>
+                  </div>
+                </div>
+                <ul class="combo-inclui">
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i
+                    >Passagem aérea ida e volta em classe executiva
+                  </li>
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i>Hotel
+                    5 estrelas em Shinjuku, Tóquio
+                  </li>
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i
+                    >Ingresso Festival Hanami + excursão ao Monte Fuji
+                  </li>
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i>JR
+                    Pass 14 dias + guia bilíngue
+                  </li>
+                </ul>
+                <div class="combo-preco">
+                  <div class="combo-de">R$ 26.000,00</div>
+                  <div class="combo-por">R$ 18.000,00</div>
+                  <div class="combo-parcelas">
+                    ou 12x de R$ 1.500,00 sem juros
+                  </div>
+                </div>
+                <div class="combo-acoes">
+                  <button class="btn-ver-combo" onclick="verCombo('lux-2')">
+                    Ver detalhes
+                  </button>
+                  <button
+                    class="btn-whatsapp-combo"
+                    onclick="abrirWhatsapp('Tóquio', 'R$ 18.000,00')"
+                  >
+                    <i class="bi bi-whatsapp"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- nova york -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card-combo">
+              <div class="combo-header" style="background: #1a3a6b">
+                <div class="combo-emoji">🗽</div>
+                <div class="combo-destino-nome">Nova York</div>
+                <div class="combo-pais">Estados Unidos</div>
+                <div class="combo-atracao">Central Park</div>
+                <div class="combo-desconto-badge">-35% OFF</div>
+              </div>
+              <div class="combo-body">
+                <div class="combo-infos">
+                  <span>10 dias</span>
+                  <span>São Paulo → Nova York</span>
+                </div>
+                <div class="combo-evento">
+                  <div>
+                    <div class="evento-nome">Broadway + Times Square NYE</div>
+                    <div class="evento-data">26 Dez 2025 a 04 Jan 2026</div>
+                  </div>
+                </div>
+                <ul class="combo-inclui">
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i
+                    >Passagem aérea ida e volta em classe executiva
+                  </li>
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i>Hotel
+                    4 estrelas em Manhattan
+                  </li>
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i
+                    >Ingresso show Broadway + réveillon Times Square
+                  </li>
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i>City
+                    pass museus + passeio de helicóptero
+                  </li>
+                </ul>
+                <div class="combo-preco">
+                  <div class="combo-de">R$ 18.500,00</div>
+                  <div class="combo-por">R$ 12.000,00</div>
+                  <div class="combo-parcelas">
+                    ou 12x de R$ 1.000,00 sem juros
+                  </div>
+                </div>
+                <div class="combo-acoes">
+                  <button class="btn-ver-combo" onclick="verCombo('lux-3')">
+                    Ver detalhes
+                  </button>
+                  <button
+                    class="btn-whatsapp-combo"
+                    onclick="abrirWhatsapp('Nova York', 'R$ 12.000,00')"
+                  >
+                    <i class="bi bi-whatsapp"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <hr class="categoria-separador" />
 
-        <!-- combos economicos -->
+        <!-- pacotes economicos -->
         <div class="categoria-titulo">
           <h3>Pacotes Econômicos</h3>
         </div>
-        <!-- cards criados pelo dados.js -->
-        <div class="row g-4" id="lista-combos-economico"></div>
+        <div class="row g-4">
+          <!-- porto seguro -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card-combo">
+              <div class="combo-header" style="background: #f0932b">
+                <div class="combo-emoji">🏖️</div>
+                <div class="combo-destino-nome">Porto Seguro</div>
+                <div class="combo-pais">Brasil — Bahia</div>
+                <div class="combo-atracao">Trancoso</div>
+                <div class="combo-desconto-badge">-38% OFF</div>
+              </div>
+              <div class="combo-body">
+                <div class="combo-infos">
+                  <span>10 dias</span>
+                  <span>São Paulo → Porto Seguro</span>
+                </div>
+                <div class="combo-evento">
+                  <div>
+                    <div class="evento-nome">Carnaval de Porto Seguro</div>
+                    <div class="evento-data">28 Fev a 08 Mar 2026</div>
+                  </div>
+                </div>
+                <ul class="combo-inclui">
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i
+                    >Passagem aérea ida e volta
+                  </li>
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i
+                    >Pousada 3 estrelas em Porto Seguro
+                  </li>
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i
+                    >Ingresso Carnaval + abadá incluído
+                  </li>
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i
+                    >Passeio de escuna para Trancoso
+                  </li>
+                </ul>
+                <div class="combo-preco">
+                  <div class="combo-de">R$ 7.200,00</div>
+                  <div class="combo-por">R$ 4.500,00</div>
+                  <div class="combo-parcelas">
+                    ou 10x de R$ 450,00 sem juros
+                  </div>
+                </div>
+                <div class="combo-acoes">
+                  <button class="btn-ver-combo" onclick="verCombo('eco-1')">
+                    Ver detalhes
+                  </button>
+                  <button
+                    class="btn-whatsapp-combo"
+                    onclick="abrirWhatsapp('Porto Seguro', 'R$ 4.500,00')"
+                  >
+                    <i class="bi bi-whatsapp"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ubatuba -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card-combo">
+              <div class="combo-header" style="background: #00b894">
+                <div class="combo-emoji">🌊</div>
+                <div class="combo-destino-nome">Ubatuba</div>
+                <div class="combo-pais">Brasil — São Paulo</div>
+                <div class="combo-atracao">Praia do Itamambuca</div>
+                <div class="combo-desconto-badge">-36% OFF</div>
+              </div>
+              <div class="combo-body">
+                <div class="combo-infos">
+                  <span>7 dias</span>
+                  <span>São Paulo → Ubatuba</span>
+                </div>
+                <div class="combo-evento">
+                  <div>
+                    <div class="evento-nome">Festival de Surf de Ubatuba</div>
+                    <div class="evento-data">10 a 17 Jan 2026</div>
+                  </div>
+                </div>
+                <ul class="combo-inclui">
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i
+                    >Traslado de ônibus fretado ida e volta
+                  </li>
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i
+                    >Pousada 3 estrelas a 200m da praia
+                  </li>
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i
+                    >Ingresso Festival de Surf + aula de surfe
+                  </li>
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i
+                    >Passeio de caiaque nas praias selvagens
+                  </li>
+                </ul>
+                <div class="combo-preco">
+                  <div class="combo-de">R$ 5.000,00</div>
+                  <div class="combo-por">R$ 3.200,00</div>
+                  <div class="combo-parcelas">ou 6x de R$ 533,33 sem juros</div>
+                </div>
+                <div class="combo-acoes">
+                  <button class="btn-ver-combo" onclick="verCombo('eco-2')">
+                    Ver detalhes
+                  </button>
+                  <button
+                    class="btn-whatsapp-combo"
+                    onclick="abrirWhatsapp('Ubatuba', 'R$ 3.200,00')"
+                  >
+                    <i class="bi bi-whatsapp"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- florianopolis -->
+          <div class="col-md-6 col-lg-4">
+            <div class="card-combo">
+              <div class="combo-header" style="background: #0984e3">
+                <div class="combo-emoji">🏄</div>
+                <div class="combo-destino-nome">Florianópolis</div>
+                <div class="combo-pais">Brasil — Santa Catarina</div>
+                <div class="combo-atracao">Praia dos Açores</div>
+                <div class="combo-desconto-badge">-31% OFF</div>
+              </div>
+              <div class="combo-body">
+                <div class="combo-infos">
+                  <span>8 dias</span>
+                  <span>São Paulo → Florianópolis</span>
+                </div>
+                <div class="combo-evento">
+                  <div>
+                    <div class="evento-nome">Fenaostra — Festival da Ostra</div>
+                    <div class="evento-data">05 a 13 Out 2025</div>
+                  </div>
+                </div>
+                <ul class="combo-inclui">
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i
+                    >Passagem aérea ida e volta
+                  </li>
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i
+                    >Apart-hotel 3 estrelas na Lagoa da Conceição
+                  </li>
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i
+                    >Ingresso Fenaostra + jantar de frutos do mar
+                  </li>
+                  <li>
+                    <i class="bi bi-check me-2" style="color: #2563eb"></i
+                    >Passeio de barco pela Ilha
+                  </li>
+                </ul>
+                <div class="combo-preco">
+                  <div class="combo-de">R$ 8.000,00</div>
+                  <div class="combo-por">R$ 5.500,00</div>
+                  <div class="combo-parcelas">
+                    ou 10x de R$ 550,00 sem juros
+                  </div>
+                </div>
+                <div class="combo-acoes">
+                  <button class="btn-ver-combo" onclick="verCombo('eco-3')">
+                    Ver detalhes
+                  </button>
+                  <button
+                    class="btn-whatsapp-combo"
+                    onclick="abrirWhatsapp('Florianópolis', 'R$ 5.500,00')"
+                  >
+                    <i class="bi bi-whatsapp"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- secao de hoteis -->
+    <!-- hoteis -->
     <section class="py-secao bg-white" id="hoteis">
       <div class="container">
         <h2 class="secao-titulo">Hotéis em Destaque</h2>
         <p class="secao-subtitulo">
           Acomodações parceiras com as melhores avaliações
         </p>
-        <div class="row g-4" id="lista-hoteis"></div>
+        <div class="row g-4">
+          <!-- grand cancun -->
+          <div class="col-sm-6 col-lg-3">
+            <div class="card card-hotel">
+              <div class="card-hotel-img" style="background: #0093d0">
+                <i class="bi bi-building-fill text-white"></i>
+              </div>
+              <div class="card-body">
+                <div class="estrelas">★★★★★</div>
+                <h6>Grand Cancún Palace</h6>
+                <div class="localizacao">Zona Hoteleira, Cancún</div>
+                <div class="mt-2">
+                  <small class="text-muted">a partir de</small><br />
+                  <strong style="font-size: 1.2rem; color: #2563eb"
+                    >R$ 980,00</strong
+                  >
+                  <small class="text-muted"> /noite</small>
+                </div>
+                <div class="mt-1"><span class="nota">9.4 ★</span></div>
+                <button
+                  class="btn w-100 mt-3 py-2"
+                  style="
+                    background: #0a1628;
+                    color: white;
+                    border-radius: 8px;
+                    font-size: 0.88rem;
+                  "
+                  onclick="
+                    mostrarToast(
+                      'Verificando disponibilidade no Grand Cancún Palace...'
+                    )
+                  "
+                >
+                  Ver disponibilidade
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- iberostar -->
+          <div class="col-sm-6 col-lg-3">
+            <div class="card card-hotel">
+              <div class="card-hotel-img" style="background: #c0392b">
+                <i class="bi bi-building-fill text-white"></i>
+              </div>
+              <div class="card-body">
+                <div class="estrelas">★★★★☆</div>
+                <h6>Iberostar Lisboa</h6>
+                <div class="localizacao">Baixa Pombalina, Lisboa</div>
+                <div class="mt-2">
+                  <small class="text-muted">a partir de</small><br />
+                  <strong style="font-size: 1.2rem; color: #2563eb"
+                    >R$ 620,00</strong
+                  >
+                  <small class="text-muted"> /noite</small>
+                </div>
+                <div class="mt-1"><span class="nota">9.1 ★</span></div>
+                <button
+                  class="btn w-100 mt-3 py-2"
+                  style="
+                    background: #0a1628;
+                    color: white;
+                    border-radius: 8px;
+                    font-size: 0.88rem;
+                  "
+                  onclick="
+                    mostrarToast(
+                      'Verificando disponibilidade no Iberostar Lisboa...'
+                    )
+                  "
+                >
+                  Ver disponibilidade
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- marriott -->
+          <div class="col-sm-6 col-lg-3">
+            <div class="card card-hotel">
+              <div class="card-hotel-img" style="background: #e84393">
+                <i class="bi bi-building-fill text-white"></i>
+              </div>
+              <div class="card-body">
+                <div class="estrelas">★★★★★</div>
+                <h6>Marriott Miami Beach</h6>
+                <div class="localizacao">South Beach, Miami</div>
+                <div class="mt-2">
+                  <small class="text-muted">a partir de</small><br />
+                  <strong style="font-size: 1.2rem; color: #2563eb"
+                    >R$ 1.450,00</strong
+                  >
+                  <small class="text-muted"> /noite</small>
+                </div>
+                <div class="mt-1"><span class="nota">9.6 ★</span></div>
+                <button
+                  class="btn w-100 mt-3 py-2"
+                  style="
+                    background: #0a1628;
+                    color: white;
+                    border-radius: 8px;
+                    font-size: 0.88rem;
+                  "
+                  onclick="
+                    mostrarToast(
+                      'Verificando disponibilidade no Marriott Miami Beach...'
+                    )
+                  "
+                >
+                  Ver disponibilidade
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- sofitel -->
+          <div class="col-sm-6 col-lg-3">
+            <div class="card card-hotel">
+              <div class="card-hotel-img" style="background: #0984e3">
+                <i class="bi bi-building-fill text-white"></i>
+              </div>
+              <div class="card-body">
+                <div class="estrelas">★★★★★</div>
+                <h6>Sofitel Buenos Aires</h6>
+                <div class="localizacao">Recoleta, Buenos Aires</div>
+                <div class="mt-2">
+                  <small class="text-muted">a partir de</small><br />
+                  <strong style="font-size: 1.2rem; color: #2563eb"
+                    >R$ 530,00</strong
+                  >
+                  <small class="text-muted"> /noite</small>
+                </div>
+                <div class="mt-1"><span class="nota">8.9 ★</span></div>
+                <button
+                  class="btn w-100 mt-3 py-2"
+                  style="
+                    background: #0a1628;
+                    color: white;
+                    border-radius: 8px;
+                    font-size: 0.88rem;
+                  "
+                  onclick="
+                    mostrarToast(
+                      'Verificando disponibilidade no Sofitel Buenos Aires...'
+                    )
+                  "
+                >
+                  Ver disponibilidade
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- secao de diferenciais da empresa -->
+    <!-- diferenciais -->
     <section class="py-secao secao-diferenciais" id="diferenciais">
       <div class="container">
         <h2 class="secao-titulo text-center">
@@ -308,7 +801,7 @@
       </div>
     </section>
 
-    <!-- banner de cadastro de email -->
+    <!-- newsletter -->
     <section class="banner-newsletter">
       <div class="container">
         <div class="row align-items-center">
@@ -331,7 +824,7 @@
                 class="btn btn-newsletter"
                 onclick="cadastrarNewsletter()"
               >
-                <i class="bi bi-bell me-1"></i>Quero ser avisado!
+                Quero ser avisado!
               </button>
             </div>
           </div>
@@ -339,7 +832,7 @@
       </div>
     </section>
 
-    <!-- rodape -->
+    <!-- footer -->
     <footer>
       <div class="container">
         <div class="row g-4">
@@ -362,39 +855,33 @@
               ></a>
             </div>
           </div>
-
           <div class="col-sm-6 col-lg-2">
             <h6>Combos</h6>
             <ul>
               <li><a href="#">Combos de Música</a></li>
               <li><a href="#">Combos de Esportes</a></li>
-              <li><a href="#">Combos de Cultura</a></li>
               <li><a href="#">Lua de Mel</a></li>
               <li><a href="#">Família</a></li>
             </ul>
           </div>
-
           <div class="col-sm-6 col-lg-2">
             <h6>Destinos</h6>
             <ul>
-              <li><a href="#">Tóquio</a></li>
               <li><a href="#">Paris</a></li>
+              <li><a href="#">Tóquio</a></li>
               <li><a href="#">Nova York</a></li>
+              <li><a href="#">Porto Seguro</a></li>
               <li><a href="#">Florianópolis</a></li>
-              <li><a href="#">Ubatuba</a></li>
             </ul>
           </div>
-
           <div class="col-sm-6 col-lg-2">
             <h6>Empresa</h6>
             <ul>
               <li><a href="#">Sobre nós</a></li>
               <li><a href="#">Blog de viagens</a></li>
-              <li><a href="#">Parceiros</a></li>
               <li><a href="#">Trabalhe conosco</a></li>
             </ul>
           </div>
-
           <div class="col-sm-6 col-lg-2">
             <h6>Ajuda</h6>
             <ul>
@@ -405,17 +892,13 @@
             </ul>
           </div>
         </div>
-
         <div class="footer-bottom text-center">
-          <p>
-            © 2025 Horizonte Viagens. Todos os direitos reservados. | PIM - 2026
-            ADS
-          </p>
+          <p>Horizonte Viagens - 2026 - PIM ADS UNIP</p>
         </div>
       </div>
     </footer>
 
-    <!-- janela de login -->
+    <!-- modal login -->
     <div class="modal fade" id="modalLogin" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -423,10 +906,7 @@
             class="modal-header-custom d-flex justify-content-between align-items-start"
           >
             <div>
-              <h4>
-                <i class="bi bi-airplane-fill text-warning me-2"></i>Bem-vindo
-                de volta!
-              </h4>
+              <h4>Bem-vindo de volta!</h4>
               <p>Entre na sua conta pra acessar seus combos</p>
             </div>
             <button class="btn-close" data-bs-dismiss="modal"></button>
@@ -459,7 +939,7 @@
                 </button>
               </div>
             </div>
-            <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="d-flex justify-content-between mb-4">
               <div class="form-check">
                 <input
                   class="form-check-input"
@@ -478,25 +958,8 @@
               >
             </div>
             <button class="btn btn-modal-principal mb-3" onclick="fazerLogin()">
-              <i class="bi bi-box-arrow-in-right me-2"></i>Entrar
+              Entrar
             </button>
-            <div class="text-center text-muted mb-3" style="font-size: 0.85rem">
-              — ou entre com —
-            </div>
-            <div class="d-flex gap-2 mb-4">
-              <button
-                class="btn btn-outline-secondary w-50 py-2"
-                onclick="mostrarToast('Login com Google em breve.')"
-              >
-                <i class="bi bi-google me-2"></i>Google
-              </button>
-              <button
-                class="btn btn-outline-secondary w-50 py-2"
-                onclick="mostrarToast('Login com Facebook em breve.')"
-              >
-                <i class="bi bi-facebook me-2"></i>Facebook
-              </button>
-            </div>
             <div class="text-center" style="font-size: 0.9rem">
               Não tem conta?
               <a
@@ -512,7 +975,7 @@
       </div>
     </div>
 
-    <!-- janela de cadastro -->
+    <!-- modal cadastro -->
     <div class="modal fade" id="modalCadastro" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -520,10 +983,7 @@
             class="modal-header-custom d-flex justify-content-between align-items-start"
           >
             <div>
-              <h4>
-                <i class="bi bi-person-plus text-warning me-2"></i>Crie sua
-                conta
-              </h4>
+              <h4>Crie sua conta</h4>
               <p>Rápido, grátis e você já começa economizando</p>
             </div>
             <button class="btn-close" data-bs-dismiss="modal"></button>
@@ -556,37 +1016,16 @@
                   placeholder="seu@email.com.br"
                 />
               </div>
-              <!-- telefone e obrigatorio pra confirmar reservas -->
               <div class="col-12">
                 <label class="form-label">telefone / whatsapp *</label>
-                <div class="position-relative">
-                  <span
-                    class="position-absolute"
-                    style="
-                      left: 14px;
-                      top: 50%;
-                      transform: translateY(-50%);
-                      color: var(--cinza-texto);
-                      font-size: 0.9rem;
-                    "
-                  >
-                    <i class="bi bi-whatsapp text-success"></i>
-                  </span>
-                  <input
-                    type="tel"
-                    class="form-control form-control-custom"
-                    id="cadTelefone"
-                    placeholder="(11) 99999-9999"
-                    oninput="mascaraTelefone(this)"
-                    style="padding-left: 36px"
-                  />
-                </div>
-                <small class="text-muted" style="font-size: 0.78rem">
-                  <i class="bi bi-info-circle me-1"></i>Usamos pra te avisar de
-                  promoções e confirmar reservas
-                </small>
+                <input
+                  type="tel"
+                  class="form-control form-control-custom"
+                  id="cadTelefone"
+                  placeholder="(11) 99999-9999"
+                  oninput="mascaraTelefone(this)"
+                />
               </div>
-              <!-- cpf opcional mas importante pra emissao de nota -->
               <div class="col-12">
                 <label class="form-label">cpf</label>
                 <input
@@ -597,7 +1036,6 @@
                   oninput="mascaraCpf(this)"
                 />
               </div>
-              <!-- campo de senha com botao de mostrar/esconder -->
               <div class="col-12">
                 <label class="form-label"
                   >senha *
@@ -621,7 +1059,6 @@
                   </button>
                 </div>
               </div>
-              <!-- barrinha colorida que mostra a forca da senha -->
               <div class="col-12">
                 <div
                   class="progress mt-1"
@@ -637,7 +1074,6 @@
                   >Digite uma senha</small
                 >
               </div>
-              <!-- checkbox de aceite dos termos -->
               <div class="col-12">
                 <div class="form-check">
                   <input
@@ -663,7 +1099,7 @@
                   class="btn btn-modal-principal"
                   onclick="fazerCadastro()"
                 >
-                  <i class="bi bi-person-plus me-2"></i>Criar Conta Grátis
+                  Criar Conta Grátis
                 </button>
               </div>
               <div class="col-12 text-center" style="font-size: 0.9rem">
@@ -682,60 +1118,15 @@
       </div>
     </div>
 
-    <!-- chatbot -->
-    <div class="chatbot-janela" id="chatbot-janela">
-      <div class="chatbot-header">
-        <div class="chatbot-avatar"><i class="bi bi-robot"></i></div>
-        <div class="chatbot-info">
-          <h6>Hor - Assistente Virtual</h6>
-          <small>Online agora</small>
-        </div>
-        <button class="chatbot-fechar" onclick="toggleChatbot()">
-          <i class="bi bi-x-lg"></i>
-        </button>
-      </div>
-      <div class="chatbot-mensagens" id="chatbot-mensagens"></div>
-      <div class="chatbot-input-area">
-        <input
-          type="text"
-          id="chatbot-input"
-          placeholder="Pergunte sobre destinos, preços..."
-        />
-        <button class="btn-enviar-chat" onclick="enviarMensagemChat()">
-          <i class="bi bi-send-fill"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- botao azul no canto da tela que abre o chat -->
-    <button class="btn-chatbot-float" onclick="toggleChatbot()">
-      <i class="bi bi-chat-dots-fill"></i>
-    </button>
-
-    <!-- botao verde do whatsapp -->
+    <!-- whatsapp icone -->
     <button class="btn-whatsapp-float" onclick="abrirWhatsappGeral()">
       <i class="bi bi-whatsapp"></i>
     </button>
 
-    <!-- mensagem de feedback que aparece embaixo da tela -->
-    <div class="toast-custom" id="toastGlobal">
-      <i class="bi bi-check-circle-fill"></i>
-      <span id="toastMensagem"></span>
-    </div>
-
-    <!-- bootstrap js — precisa vir antes dos meus scripts -->
+    <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- meus js — a ordem importa! -->
-    <script src="js/utils.js"></script>
-    <!-- funcoes utilitarias (toast, mascaras...) -->
-    <script src="js/auth.js"></script>
-    <!-- login, cadastro e logout -->
-    <script src="js/dados.js"></script>
-    <!-- dados e renderizacao dos cards -->
-    <script src="js/chatbot.js"></script>
-    <!-- assistente virtual -->
-    <script src="js/main.js"></script>
-    <!-- inicializa tudo — tem que ser o ultimo -->
+    <!-- meu javascript -->
+    <script src="js/script.js"></script>
   </body>
 </html>
