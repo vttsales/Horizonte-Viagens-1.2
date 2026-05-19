@@ -13,7 +13,6 @@ var usuarioLogado =
 window.onload = function () {
   atualizarNavbar()
   bloquearDatasPassadas()
-  iniciarChatbot()
 
   // fecha o menu mobile antes de navegar para a secao
   var links = document.querySelectorAll('.menu-links .nav-link')
@@ -154,9 +153,8 @@ function verCombo(destino) {
 }
 
 // whatsapp
-
 function abrirWhatsapp(destino, preco) {
-  var numero = '5511999999999' // trocar pelo numero real
+  var numero = '5516999999999' // trocar pelo numero real
   var msg =
     'Olá! Vi o combo para ' +
     destino +
@@ -170,7 +168,7 @@ function abrirWhatsapp(destino, preco) {
 }
 
 function abrirWhatsappGeral() {
-  var numero = '5511999999999'
+  var numero = '5516999999999'
   var msg = 'Olá! Preciso de ajuda com o site Horizonte Viagens.'
   window.open(
     'https://wa.me/' + numero + '?text=' + encodeURIComponent(msg),
@@ -179,7 +177,6 @@ function abrirWhatsappGeral() {
 }
 
 // newsletter
-
 function cadastrarNewsletter() {
   var email = document.getElementById('emailNewsletter').value.trim()
   if (email.indexOf('@') == -1) {
@@ -191,7 +188,6 @@ function cadastrarNewsletter() {
 }
 
 // mascara p formulario
-
 function mascaraTelefone(input) {
   var v = input.value.replace(/\D/g, '').substring(0, 11)
   if (v.length <= 10) {
@@ -223,7 +219,6 @@ function toggleSenha(idCampo, btn) {
 }
 
 // busca
-
 function buscarCombos() {
   var origem = document.getElementById('origem').value.trim()
   var destino = document.getElementById('destino').value.trim()
